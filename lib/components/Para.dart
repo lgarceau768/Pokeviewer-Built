@@ -4,7 +4,8 @@ class Para extends StatelessWidget {
   final String text;
   final bool bold;
   double size;
-  Para({Key key, this.text, this.bold, this.size}) : super(key: key);
+  TextAlign customAlign;
+  Para({Key key, this.text, this.bold, this.size, this.customAlign}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,8 +17,9 @@ class Para extends StatelessWidget {
           color: Colors.black,
           fontFamily: 'Muli',
           fontWeight: bold ? FontWeight.bold: FontWeight.normal,
-          fontSize: size != null ? size: 25
+          fontSize: size != null ? size: 20,
         ),
+        textAlign: customAlign != null ? customAlign : TextAlign.center,
       )
     );
   }
