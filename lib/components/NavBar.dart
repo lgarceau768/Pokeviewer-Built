@@ -38,8 +38,7 @@ class _NavBarState extends State<NavBar> {
 
 
     var screenSize = MediaQuery.of(context).size;
-    print(screenSize.width);
-    if (screenSize.width < 960) {
+    if (screenSize.width < 1019) {
       if(this.navbar){
         return Stack(
           fit: StackFit.expand,
