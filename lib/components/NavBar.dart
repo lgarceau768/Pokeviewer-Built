@@ -241,9 +241,6 @@ class _NavBarState extends State<NavBar> {
                   image: DecorationImage(
                       image: AssetImage('assets/Text.png'), fit: BoxFit.cover)),
             ),
-            ResponsiveWidget.isLargeScreen(context)
-                ? Container(width: screenSize.width * 1 / 3)
-                : Container(width: 0.0, height: 0.0),
             InkWell(
               onTap: () => {
                 this.setState(() {

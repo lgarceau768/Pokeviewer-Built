@@ -18,7 +18,7 @@ class BCard extends StatelessWidget {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     print(size.width);
-    if (size.width < 600) {
+    if (size.width < 822) {
       if (this.leftChild != null && this.rightChild != null) {
         if (this.socialIcons == true) {
           return Column(
@@ -26,8 +26,8 @@ class BCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
-                    width: size.width,
-                    height: size.height * 0.52,
+                    width: size.width * 0.9,
+                    height: size.height * 0.8,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
@@ -64,8 +64,8 @@ class BCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
-                  width: size.width,
-                  height: size.height * 0.7,
+                  width: size.width * 0.9,
+                  height: size.height * 0.8,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [

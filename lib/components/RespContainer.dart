@@ -10,18 +10,18 @@ class RespContainer extends StatelessWidget {
     double w = MediaQuery.of(context).size.width;
     double h = MediaQuery.of(context).size.height;
 
-    if (w > 1000) {
+    if (w > 1200) {
       return Container(
         decoration: decor,
-        width: w / 3.3,
+        width: w / 3,
         height: h / 2.1,
         child: child
       );
-    } else if (w <= 1000 && w > 600) {
+    } else if (w <= 1200 && w > 822) {
       return Container(
         decoration: decor,
-        width: w / 2.5,
-        height: h / 2.2,
+        width: w / 2.1,
+        height: h / 2,
         child: child
       );
     } else {
