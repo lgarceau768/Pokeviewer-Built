@@ -68,7 +68,7 @@ class _HomePageState extends State<HomePage> {
                     decor: BoxDecoration(
                       border: Border.all(color: new Color(0xFFFFAD33)),
                       borderRadius: BorderRadius.all(Radius.circular(10)),
-                      color: Colors.white,
+                      color: Colors.grey,
                       boxShadow: [
                         BoxShadow(blurRadius: 20, color: Colors.grey)
                       ]),
@@ -133,7 +133,7 @@ class _HomePageState extends State<HomePage> {
                                   ),
                                   Container(
                                     decoration: BoxDecoration(
-                                      color: Colors.white,
+                                      color: Colors.grey,
                                       border: Border.all(color: new Color(0xFFFFAD33)),
                                       borderRadius: BorderRadius.all(Radius.circular(5))
                                     ),
@@ -153,7 +153,7 @@ class _HomePageState extends State<HomePage> {
                                       smallScreen: Image.asset('App-Store.png', width: 156, height: 49))),
                                   Container(
                                     decoration: BoxDecoration(
-                                        color: Colors.white,
+                                        color: Colors.grey,
                                         border: Border.all(color: new Color(0xFFFFAD33)),
                                         borderRadius: BorderRadius.all(Radius.circular(5))),
                                     width: 150,

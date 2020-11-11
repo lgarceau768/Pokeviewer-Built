@@ -12,7 +12,7 @@ class BIcon extends StatelessWidget {
       width: icon.size + 20,
       height: icon.size + 20,
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Colors.grey,
         border: Border.all(color: new Color(0xFF707070)),
         borderRadius: BorderRadius.all(Radius.circular(5))
       ),

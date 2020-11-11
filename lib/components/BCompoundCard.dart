@@ -23,7 +23,7 @@ class BCompoundCard extends StatelessWidget {
             child: Container(
               decoration: BoxDecoration(
                 border: Border.all(color: color, width: 2),
-                color: Colors.white.withOpacity(0.8),
+                color: Colors.grey.withOpacity(0.8),
                 borderRadius: BorderRadius.all(Radius.circular(50)),
               ),
               width: w * 0.75,
@@ -67,7 +67,7 @@ class BCompoundCard extends StatelessWidget {
             child: Container(
               decoration: BoxDecoration(
                 border: Border.all(color: color, width: 2),
-                color: Colors.white.withOpacity(0.8),
+                color: Colors.grey.withOpacity(0.8),
                 borderRadius: BorderRadius.all(Radius.circular(50)),
               ),
               width: w * 0.75,
@@ -112,7 +112,7 @@ class BCompoundCard extends StatelessWidget {
             child: Container(
               decoration: BoxDecoration(
                 border: Border.all(color: color, width: 2),
-                color: Colors.white.withOpacity(0.8),
+                color: Colors.grey.withOpacity(0.8),
                 borderRadius: BorderRadius.all(Radius.circular(50)),
               ),
               width: w * 0.75,

@@ -35,8 +35,6 @@ class _NavBarState extends State<NavBar> {
 
   @override
   Widget build(BuildContext context) {
-
-
     var screenSize = MediaQuery.of(context).size;
     if (screenSize.width < 1019) {
       if(this.navbar){
@@ -45,7 +43,7 @@ class _NavBarState extends State<NavBar> {
           children: [
             Container(
               height: 60,
-              color: Colors.white.withOpacity(0.9),
+              color: Colors.grey.withOpacity(0.9),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -74,7 +72,7 @@ class _NavBarState extends State<NavBar> {
               top: 0, 
               right: 0,
               child: Container(
-                color: Colors.white,
+                color: Colors.grey.withOpacity(0.7),
                 child: Expanded(
                   child: Container(
                     color: Colors.transparent,
@@ -84,10 +82,11 @@ class _NavBarState extends State<NavBar> {
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
                         InkWell(
-                          onTap: () => {
+                          onTap: () {
                             this.setState(() {
                               screen = 'scan';
-                            }),
+                            });
+                            this.changeColor('scan', Colors.black);0
                           },
                           child: MouseRegion(
                               onEnter: (PointerEnterEvent evt) =>
@@ -176,7 +175,7 @@ class _NavBarState extends State<NavBar> {
                                   'SIGN UP',
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
-                                    color: Colors.white,
+                                    color: Colors.grey,
                                     fontFamily: 'Muli',
                                     fontWeight: this.screen == 'sign'
                                         ? FontWeight.bold
@@ -199,7 +198,7 @@ class _NavBarState extends State<NavBar> {
       } else {
         return Container(
           height: 60,
-          color: Colors.white.withOpacity(0.9),
+          color: Colors.grey.withOpacity(0.9),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -229,7 +228,7 @@ class _NavBarState extends State<NavBar> {
     }
     return Container(
         height: 60,
-        color: Colors.white.withOpacity(0.9),
+        color: Colors.grey.withOpacity(0.9),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
