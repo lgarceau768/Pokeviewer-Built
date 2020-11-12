@@ -70,6 +70,7 @@ flutter:
     - assets/App-Store.png
     - assets/G-Play-QR.png
     - assets/App-Store-QR.png
+    - assets/Placeholder.png
 
   fonts:
     - family: Muli

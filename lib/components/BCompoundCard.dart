@@ -38,9 +38,9 @@ class BCompoundCard extends StatelessWidget {
                     children: [
                       Padding(
                         padding: EdgeInsets.only(bottom: 15),
-                        child: Center(child: CustomTxt(bold: true, color: color, text: title, fontSize: 35))
+                        child: Center(child: CustomTxt(bold: true, color: color, text: title, fontSize: 35, customAlign: TextAlign.left))
                       ),
-                      Center(child: Para(bold: false, text: text))
+                      Center(child: Para(bold: false, text: text, customAlign: TextAlign.left))
                     ],
                   ),
                   Container(
@@ -94,9 +94,9 @@ class BCompoundCard extends StatelessWidget {
                     children: [
                       Padding(
                         padding: EdgeInsets.only(bottom: 15),
-                        child: Center(child: CustomTxt(bold: true, color: color, text: title, fontSize: 35))
+                        child: Center(child: CustomTxt(bold: true, color: color, text: title, fontSize: 35, customAlign: TextAlign.right))
                       ),
-                      Center(child: Para(bold: false, text: text))
+                      Center(child: Para(bold: false, text: text, customAlign: TextAlign.right))
                     ],
                   ),
                 ],
@@ -127,9 +127,9 @@ class BCompoundCard extends StatelessWidget {
                     children: [
                       Padding(
                         padding: EdgeInsets.only(bottom: 15),
-                        child: Center(child: CustomTxt(bold: true, color: color, text: title, fontSize: 35))
+                        child: Center(child: CustomTxt(bold: true, color: color, text: title, fontSize: 35, customAlign: TextAlign.left))
                       ),
-                      Center(child: Para(bold: false, text: text))
+                      Center(child: Para(bold: false, text: text, customAlign: TextAlign.left))
                     ],
                   ),
                   Padding(

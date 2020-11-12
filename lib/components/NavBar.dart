@@ -48,11 +48,9 @@ class _NavBarState extends State<NavBar> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Container(
-                    width: screenSize.width / 5 < 384 ? 384: screenSize.width / 5,
-                    height: screenSize.height / 10 < 108 ? 108: screenSize.height / 10,
-                    decoration: BoxDecoration(
-                        image: DecorationImage(
-                            image: AssetImage('assets/Text.png'), fit: BoxFit.cover)),
+                    width: screenSize.width / 4.2 < 448 ? 448: screenSize.width / 4.2,
+                    height: screenSize.height / 10 < 108 ? 448: screenSize.height / 10,
+                    child: Image.asset('assets/Text.png')
                   ),
                   InkWell(
                     onTap: () {
@@ -72,13 +70,14 @@ class _NavBarState extends State<NavBar> {
               top: 0, 
               right: 0,
               child: Container(
-                color: Colors.grey.withOpacity(0.7),
+                width: 200,
+                height: 300,
                 child: Expanded(
                   child: Container(
                     color: Colors.transparent,
                     height: screenSize.height / 3 < 360 ? 360: screenSize.height / 3,
                     child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
                         InkWell(
@@ -86,7 +85,7 @@ class _NavBarState extends State<NavBar> {
                             this.setState(() {
                               screen = 'scan';
                             });
-                            this.changeColor('scan', Colors.black);0
+                            colorChange('scan', Colors.black);
                           },
                           child: MouseRegion(
                               onEnter: (PointerEnterEvent evt) =>
@@ -151,7 +150,7 @@ class _NavBarState extends State<NavBar> {
                                 }),
                               },
                           child: Padding(
-                            padding: EdgeInsets.only(left: 15, right: 15, bottom: 5, top: 5),
+                            padding: EdgeInsets.only(left: 30, right: 30, bottom: 5, top: 5),
                             child: MouseRegion(
                               onEnter: (PointerEnterEvent evt) => {
                                 this.setState(() {
@@ -166,7 +165,7 @@ class _NavBarState extends State<NavBar> {
                               child: Container(
                                 width: 100,
                                 decoration: BoxDecoration(
-                                  border: Border.all(color: new Color(0xFFFCC016)),
+                                  border: Border.all(color: btnColor),
                                   borderRadius:
                                       BorderRadius.all(Radius.circular(5)),
                                   color: btnColor,
@@ -175,7 +174,7 @@ class _NavBarState extends State<NavBar> {
                                   'SIGN UP',
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
-                                    color: Colors.grey,
+                                    color: Colors.black,
                                     fontFamily: 'Muli',
                                     fontWeight: this.screen == 'sign'
                                         ? FontWeight.bold
@@ -203,11 +202,9 @@ class _NavBarState extends State<NavBar> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Container(
-                width: screenSize.width / 5 < 384 ? 384: screenSize.width / 5,
-                height: screenSize.height / 10 < 108 ? 108: screenSize.height / 10,
-                decoration: BoxDecoration(
-                    image: DecorationImage(
-                        image: AssetImage('assets/Text.png'), fit: BoxFit.cover)),
+                width: screenSize.width / 4.2 < 448 ? 448: screenSize.width / 4.2,
+                height: screenSize.height / 10 < 108 ? 448: screenSize.height / 10,
+                child: Image.asset('assets/Text.png')
               ),
               InkWell(
                 onTap: () {
@@ -227,18 +224,16 @@ class _NavBarState extends State<NavBar> {
       }
     }
     return Container(
-        height: 60,
         color: Colors.grey.withOpacity(0.9),
+        height: 60,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             Image.asset('assets/B-ICON.png'),
             Container(
-              width: screenSize.width / 6 < 320 ? 320: screenSize.width / 6,
-              height: screenSize.height / 11 < 98 ? 98: screenSize.height / 11,
-              decoration: BoxDecoration(
-                  image: DecorationImage(
-                      image: AssetImage('assets/Text.png'), fit: BoxFit.cover)),
+                width: screenSize.width / 4.2 < 448 ? 448: screenSize.width / 4.2,
+                height: screenSize.height / 10 < 108 ? 448: screenSize.height / 10,
+                child: Image.asset('assets/Text.png')
             ),
             InkWell(
               onTap: () => {
@@ -346,6 +341,7 @@ class _NavBarState extends State<NavBar> {
               )
             ),
           ],
-        ));
+        )
+    );
   }
 }

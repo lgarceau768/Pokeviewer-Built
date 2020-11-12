@@ -5,7 +5,8 @@ class CustomTxt extends StatelessWidget {
   final bool bold;
   final double fontSize;
   final Color color;
-  const CustomTxt({Key key, this.text, this.bold, this.color, this.fontSize}) : super(key: key);
+  TextAlign customAlign;
+  CustomTxt({Key key, this.text, this.bold, this.color, this.fontSize, this.customAlign}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -15,8 +16,9 @@ class CustomTxt extends StatelessWidget {
           color: this.color,
           fontFamily: 'Muli',
           fontWeight: bold ? FontWeight.bold: FontWeight.normal,
-          fontSize: this.fontSize
+          fontSize: this.fontSize,
         ),
+        textAlign: customAlign != null ? customAlign: null,
       );
   }
 }

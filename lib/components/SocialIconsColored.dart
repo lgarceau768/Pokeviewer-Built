@@ -29,23 +29,23 @@ class SocialIcons extends StatelessWidget {
         children: [
           Padding(padding: EdgeInsets.only(right: 5),
             child: ResponsiveWidget(
-              largeScreen: BIcon(icon: FaIcon(FontAwesomeIcons.twitter, size: 35, color: Colors.white), onTap: () => openLink(binsta)),
-              mediumScreen: BIcon(icon: FaIcon(FontAwesomeIcons.twitter, size: 28, color: Colors.white), onTap: () => openLink(binsta)),
-              smallScreen: BIcon(icon: FaIcon(FontAwesomeIcons.twitter, size: 20, color: Colors.white), onTap: () => openLink(binsta)),
+              largeScreen: BIcon(icon: FaIcon(FontAwesomeIcons.twitter, size: 35, color: Colors.blue), onTap: () => openLink(binsta)),
+              mediumScreen: BIcon(icon: FaIcon(FontAwesomeIcons.twitter, size: 28, color: Colors.blue), onTap: () => openLink(binsta)),
+              smallScreen: BIcon(icon: FaIcon(FontAwesomeIcons.twitter, size: 20, color: Colors.blue), onTap: () => openLink(binsta)),
             ),
           ),
           Padding(padding: EdgeInsets.only(right: 5),
             child: ResponsiveWidget(
-              largeScreen: BIcon(icon: FaIcon(FontAwesomeIcons.instagram, size: 35, color: Colors.white), onTap: () => openLink(btwitter)),
-              mediumScreen: BIcon(icon: FaIcon(FontAwesomeIcons.instagram, size: 28, color: Colors.white), onTap: () => openLink(btwitter)),
-              smallScreen: BIcon(icon: FaIcon(FontAwesomeIcons.instagram, size: 20, color: Colors.white), onTap: () => openLink(btwitter)),
+              largeScreen: BIcon(icon: FaIcon(FontAwesomeIcons.instagram, size: 35, color: Colors.red), onTap: () => openLink(btwitter)),
+              mediumScreen: BIcon(icon: FaIcon(FontAwesomeIcons.instagram, size: 28, color: Colors.red), onTap: () => openLink(btwitter)),
+              smallScreen: BIcon(icon: FaIcon(FontAwesomeIcons.instagram, size: 20, color: Colors.red), onTap: () => openLink(btwitter)),
             ),
           ),
           Padding(padding: EdgeInsets.only(right: 5),
             child: ResponsiveWidget(
-              largeScreen: BIcon(icon: FaIcon(FontAwesomeIcons.globeAmericas, size: 35, color: Colors.white), onTap: () => openLink(bworld)),
-              mediumScreen: BIcon(icon: FaIcon(FontAwesomeIcons.globeAmericas, size: 28, color: Colors.white), onTap: () => openLink(bworld)),
-              smallScreen: BIcon(icon: FaIcon(FontAwesomeIcons.globeAmericas, size: 20, color: Colors.white), onTap: () => openLink(bworld)),
+              largeScreen: BIcon(icon: FaIcon(FontAwesomeIcons.globeAmericas, size: 35, color: Colors.green), onTap: () => openLink(bworld)),
+              mediumScreen: BIcon(icon: FaIcon(FontAwesomeIcons.globeAmericas, size: 28, color: Colors.green), onTap: () => openLink(bworld)),
+              smallScreen: BIcon(icon: FaIcon(FontAwesomeIcons.globeAmericas, size: 20, color: Colors.green), onTap: () => openLink(bworld)),
             )
           )
         ],
