@@ -2,6 +2,8 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:website/components/CustomTxt.dart';
+import 'package:website/components/Social.dart';
+import 'package:website/components/SocialIconsColored.dart';
 
 class BBottomBar extends StatefulWidget {
   BBottomBar({Key key}) : super(key: key);
@@ -11,7 +13,6 @@ class BBottomBar extends StatefulWidget {
 }
 
 class _BBottomBarState extends State<BBottomBar> {
-  TextEditingController _controller;
   String email = '';
 
   @override
@@ -51,34 +52,42 @@ class _BBottomBarState extends State<BBottomBar> {
                 Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Stack(
-                      children: [
-                        TextField(
-                          controller: _controller,
-                          decoration: InputDecoration(
-                            border: OutlineInputBorder(),
-                            fillColor: new Color(0xFF404040).withOpacity(0.7),
-                            helperText: 'Email',                          
+                    Flexible(
+                      child: Stack(
+                        alignment: Alignment.centerRight,
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.only(bottom: 20),
+                            child: Container(
+                              height: 40,
+                              width: w / 4,
+                              child: TextField(                              
+                                decoration: InputDecoration(
+                                  fillColor: new Color(0xFF404040).withOpacity(0.7),
+                                  hintText: 'Email',                          
+                                ),
+                                onChanged: (value) {
+                                  this.setState(() {
+                                    email = value;
+                                  });
+                                },
+                                onSubmitted: (value) {
+                                  print('add to mailing list: '+value);
+                                  this.setState(() {
+                                    email = '';
+                                  });
+                                },
+                              ),
+                            ),
                           ),
-                          onChanged: (value) {
-                            this.setState(() {
-                              email = value;
-                            });
-                          },
-                          onSubmitted: (value) {
-                            print('add to mailing list: '+value);
-                            this.setState(() {
-                              email = '';
-                            });
-                          },
-                        ),
-                        InkWell(
-                          onTap: () {
-                            print('add to email list');
-                          },
-                          child: FaIcon(FontAwesomeIcons.paperPlane)
-                        )
-                      ]
+                          InkWell(
+                            onTap: () {
+                              print('add to email list');
+                            },
+                            child: FaIcon(FontAwesomeIcons.paperPlane)
+                          )
+                        ]
+                      ),
                     ),
                     CustomTxt(
                       bold: true,
@@ -87,7 +96,8 @@ class _BBottomBarState extends State<BBottomBar> {
                       text: 'The LEGO® are trademarks of The LEGO® Group of companies which is not associated with BrickBanker\nThis product is under the rules and regulations in "Paternt Pending" format',
                     )
                   ],
-                )
+                ),
+                SocialIconsColored()
               ],
             ) 
           )

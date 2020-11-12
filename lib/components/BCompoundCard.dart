@@ -107,7 +107,7 @@ class BCompoundCard extends StatelessWidget {
       }
     } else {
         return Padding(
-          padding: EdgeInsets.all(100),
+          padding: EdgeInsets.all(120),
           child: Center(
             child: Container(
               decoration: BoxDecoration(

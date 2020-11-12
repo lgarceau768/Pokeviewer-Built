@@ -4,8 +4,8 @@ import 'package:website/components/BIcon.dart';
 import 'dart:html' as html;
 import 'package:website/components/Responsive.dart';
 
-class SocialIcons extends StatelessWidget {
-  SocialIcons({Key key}) : super(key: key);
+class SocialIconsColored extends StatelessWidget {
+  SocialIconsColored({Key key}) : super(key: key);
 
   var binsta = 'https://www.instagram.com/';
   var btwitter = 'https://twitter.com/?lang=en';
