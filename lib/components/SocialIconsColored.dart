@@ -4,6 +4,8 @@ import 'package:website/components/BIcon.dart';
 import 'dart:html' as html;
 import 'package:website/components/Responsive.dart';
 
+// sign up to link to a google form
+// world icoon to link to p site
 class SocialIconsColored extends StatelessWidget {
   SocialIconsColored({Key key}) : super(key: key);
 

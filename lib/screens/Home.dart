@@ -44,6 +44,11 @@ class _HomePageState extends State<HomePage> {
   
   @override
   Widget build(BuildContext context) {
+    final SCAN_KEY = new GlobalKey();
+    final VAULT_KEY = new GlobalKey();
+    final BUILDER_KEY = new GlobalKey();
+    final MARKETPLACE_KEY = new GlobalKey();
+
     var screenSize = MediaQuery.of(context).size;
 
     return new Container(
@@ -58,7 +63,7 @@ class _HomePageState extends State<HomePage> {
           backgroundColor: Colors.transparent,
           appBar: PreferredSize(
             preferredSize: Size(screenSize.width, 1000),
-            child: NavBar(),
+            child: NavBar(scan: SCAN_KEY, vault: VAULT_KEY, builder: BUILDER_KEY, market: MARKETPLACE_KEY),
           ),
           body: GestureDetector(
             onTap: () {
@@ -180,6 +185,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                   BCompoundCard(
+                    key: SCAN_KEY,
                     color: Colors.grey[350].withOpacity(0.7),
                     title: 'Bank Tool!',
                     text: 'Bank the pieces of your LEGO® set\nwith the camera.\nOrganize them in the "Vault"\ncreate your own builds.',
@@ -187,6 +193,7 @@ class _HomePageState extends State<HomePage> {
                     imagePath: 'assets/Scan-Screen@2x.png'
                   ),
                   BCompoundCard(
+                    key: VAULT_KEY,
                     color: Colors.grey[350].withOpacity(0.7),
                     title: 'Build Your Vault',
                     text: 'You can see all the pieces you scanned,\nhow yours sets are formed,\nsee detauls about each piece\nand organize them the way you want.',
@@ -194,6 +201,7 @@ class _HomePageState extends State<HomePage> {
                     imagePath: 'assets/Vault-Screen@2x.png'
                   ),
                   BCompoundCard(
+                    key: BUILDER_KEY,
                     color: Colors.grey[350].withOpacity(0.7),
                     title: 'Post Your Custom Designs',
                     text: 'Use the pieces you already scanned\nto create your own unique constructions,\ntake a picture, name it and save it here.\nYou can also share your creations.',
@@ -201,6 +209,7 @@ class _HomePageState extends State<HomePage> {
                     imagePath: 'assets/Builder-Screen@2x.png'
                   ),
                   BCompoundCard(
+                    key: MARKETPLACE_KEY,
                     color: Colors.grey[350].withOpacity(0.7),
                     title: 'Discover New Sets',
                     text: 'You are very close to completing this set,\nbuy the pieces to complete it.\nFind out which sets you might like.',

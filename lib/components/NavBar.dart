@@ -4,7 +4,11 @@ import 'package:website/components/Responsive.dart';
 import 'package:website/components/SubHeading.dart';
 
 class NavBar extends StatefulWidget {
-  NavBar({Key key}) : super(key: key);
+  GlobalKey scan;
+  GlobalKey vault;
+  GlobalKey builder;
+  GlobalKey market;
+  NavBar({Key key, this.scan, this.vault, this.builder, this.market}) : super(key: key);
 
   @override
   _NavBarState createState() => _NavBarState();
@@ -85,6 +89,8 @@ class _NavBarState extends State<NavBar> {
                             this.setState(() {
                               screen = 'scan';
                             });
+                            print('scan');
+                            Scrollable.ensureVisible(widget.scan.currentContext);
                             colorChange('scan', Colors.black);
                           },
                           child: MouseRegion(
@@ -98,25 +104,29 @@ class _NavBarState extends State<NavBar> {
                                   color: colors['scan'])),
                         ),
                         InkWell(
-                            onTap: () => {
+                            onTap: () {
                                   this.setState(() {
                                     screen = 'vault';
-                                  }),
+                                  });
+                                  Scrollable.ensureVisible(widget.vault.currentContext);
                                 },
-                            child: MouseRegion(
-                                onEnter: (PointerEnterEvent evt) =>
-                                    {this.colorChange('vault', Colors.blue)},
-                                onExit: (PointerExitEvent evt) =>
-                                    {this.colorChange('vault', Colors.black)},
-                                child: SubHeading(
+                            onHover: (hovered) {
+                              if(hovered){
+                                this.colorChange('vault', Colors.blue);
+                              } else {
+                                this.colorChange('vault', Colors.black);
+                              }
+                            },
+                            child: SubHeading(
                                     text: 'VAULT',
                                     bold: this.screen == 'vault',
-                                    color: colors['vault']))),
+                                    color: colors['vault'])),
                         InkWell(
-                            onTap: () => {
+                            onTap: () {
                                   this.setState(() {
                                     screen = 'builder';
-                                  }),
+                                  });
+                                  Scrollable.ensureVisible(widget.builder.currentContext);
                                 },
                             child: MouseRegion(
                                 onEnter: (PointerEnterEvent evt) =>
@@ -128,10 +138,11 @@ class _NavBarState extends State<NavBar> {
                                     bold: this.screen == 'builder',
                                     color: colors['builder']))),
                         InkWell(
-                            onTap: () => {
+                            onTap: () {
                                   this.setState(() {
                                     screen = 'marketplace';
-                                  }),
+                                  });
+                                  Scrollable.ensureVisible(widget.market.currentContext);
                                 },
                             child: MouseRegion(
                                 onEnter: (PointerEnterEvent evt) => {
@@ -319,7 +330,7 @@ class _NavBarState extends State<NavBar> {
                   child: Container(
                     width: 100,
                     decoration: BoxDecoration(
-                      border: Border.all(color: new Color(0xFFFCC016)),
+                      border: Border.all(color: btnColor),
                       borderRadius:
                           BorderRadius.all(Radius.circular(5)),
                       color: btnColor,

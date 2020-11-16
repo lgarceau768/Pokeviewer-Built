@@ -60,10 +60,19 @@ class _BBottomBarState extends State<BBottomBar> {
                             padding: EdgeInsets.only(bottom: 20),
                             child: Container(
                               height: 40,
-                              width: w / 4,
-                              child: TextField(                              
-                                decoration: InputDecoration(
-                                  fillColor: new Color(0xFF404040).withOpacity(0.7),
+                              width: w / 4.5,
+                              child: TextField( 
+                                textAlignVertical: TextAlignVertical.center,       
+                                style: TextStyle(
+                                  fontFamily: 'Muli',
+                                  fontSize: 12
+                                ),                      
+                                decoration: InputDecoration(                                  
+                                  fillColor: Colors.grey,
+                                  filled: true,
+                                  border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
                                   hintText: 'Email',                          
                                 ),
                                 onChanged: (value) {
@@ -84,7 +93,10 @@ class _BBottomBarState extends State<BBottomBar> {
                             onTap: () {
                               print('add to email list');
                             },
-                            child: FaIcon(FontAwesomeIcons.paperPlane)
+                            child: Padding(
+                              padding: EdgeInsets.only(bottom: 18, right: 10),
+                              child: FaIcon(FontAwesomeIcons.paperPlane, color: Colors.white, size: 17)
+                            )
                           )
                         ]
                       ),
@@ -92,8 +104,9 @@ class _BBottomBarState extends State<BBottomBar> {
                     CustomTxt(
                       bold: true,
                       color: Colors.grey[400],
-                      fontSize: 15,
-                      text: 'The LEGO® are trademarks of The LEGO® Group of companies which is not associated with BrickBanker\nThis product is under the rules and regulations in "Paternt Pending" format',
+                      fontSize: 12,
+                      text: 'The LEGO® are trademarks of The LEGO® Group of companies which is not associated\nwith BrickBanker. This product is under the rules and regulations in "Paternt Pending" format',
+                      customAlign: TextAlign.center,
                     )
                   ],
                 ),

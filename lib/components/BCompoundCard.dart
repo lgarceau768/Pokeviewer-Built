@@ -114,6 +114,9 @@ class BCompoundCard extends StatelessWidget {
                 border: Border.all(color: color, width: 2),
                 color: Colors.grey.withOpacity(0.8),
                 borderRadius: BorderRadius.all(Radius.circular(50)),
+                boxShadow: [
+                  BoxShadow(color: Colors.grey[50], blurRadius: 5)
+                ]
               ),
               width: w * 0.75,
               height: h * 0.6,
