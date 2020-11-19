@@ -6,7 +6,8 @@ import 'package:website/components/Social.dart';
 import 'package:website/components/SocialIconsColored.dart';
 
 class BBottomBar extends StatefulWidget {
-  BBottomBar({Key key}) : super(key: key);
+  final Function onAbout;
+  BBottomBar({Key key, this.onAbout}) : super(key: key);
 
   @override
   _BBottomBarState createState() => _BBottomBarState();
@@ -127,7 +128,10 @@ class _BBottomBarState extends State<BBottomBar> {
                 Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    CustomTxt(bold: false, color: Colors.grey[350], text: 'About', fontSize: 14),
+                    InkWell(
+                      onTap: widget.onAbout,
+                      child: CustomTxt(bold: false, color: Colors.grey[350], text: 'About', fontSize: 14)
+                    ),
                     CustomTxt(bold: false, color: Colors.grey[350], text: 'Help', fontSize: 14)
                   ],
                 ),

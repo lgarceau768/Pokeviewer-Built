@@ -14,12 +14,12 @@ class NavBar extends StatefulWidget {
 class _NavBarState extends State<NavBar> {
   String screen = 'landing';
   var colors = {
-    'scan': Colors.black,
-    'vault': Colors.black,
-    'marketplace': Colors.black,
-    'builder': Colors.black
+    'scan': Colors.white,
+    'vault': Colors.white,
+    'marketplace': Colors.white,
+    'builder': Colors.white
   };
-  var btnColor = new Color(0xFFFFAD33);
+  var btnColor = new Color(0xFF394967);
   bool navbar = false;
 
   @override
@@ -51,7 +51,7 @@ class _NavBarState extends State<NavBar> {
                 child: Container(
                   width: screenSize.width,
                   height: 60,
-                  color: Colors.grey.withOpacity(0.9),
+                  color: Colors.grey[300].withOpacity(0.7),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -82,7 +82,7 @@ class _NavBarState extends State<NavBar> {
                   child: Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.only(bottomRight: Radius.circular(5), bottomLeft: Radius.circular(5)),
-                      color: Colors.grey.withOpacity(0.9),
+                      color: Colors.grey[300].withOpacity(0.7),
                     ),
                       width: 200,
                       height: 300,
@@ -98,7 +98,7 @@ class _NavBarState extends State<NavBar> {
                             children: [
                               InkWell(
                                 onTap: ()  {
-                                  this.colorChange('scan', Colors.black);
+                                  this.colorChange('scan', Colors.white);
                                   this.setState(() {
                                     screen = 'scan';
                                           navbar = !navbar;
@@ -109,7 +109,7 @@ class _NavBarState extends State<NavBar> {
                                     onEnter: (PointerEnterEvent evt) =>
                                         {this.colorChange('scan', Colors.red)},
                                     onExit: (PointerExitEvent evt) =>
-                                        {this.colorChange('scan', Colors.black)},
+                                        {this.colorChange('scan', Colors.white)},
                                     child: SubHeading(
                                         text: 'SCAN TOOL',
                                         bold: this.screen == 'scan',
@@ -117,7 +117,7 @@ class _NavBarState extends State<NavBar> {
                               ),
                               InkWell(
                                   onTap: ()  {
-                                    this.colorChange('vault', Colors.black);
+                                    this.colorChange('vault', Colors.white);
                                         this.setState(() {
                                           screen = 'vault';
                                           navbar = !navbar;
@@ -130,7 +130,7 @@ class _NavBarState extends State<NavBar> {
                                           },
                                       onExit: (PointerExitEvent evt) => {
                                             this.colorChange(
-                                                'vault', Colors.black)
+                                                'vault', Colors.white)
                                           },
                                       child: SubHeading(
                                           text: 'VAULT',
@@ -153,7 +153,7 @@ class _NavBarState extends State<NavBar> {
                                           },
                                       onExit: (PointerExitEvent evt) => {
                                             this.colorChange(
-                                                'builder', Colors.black)
+                                                'builder', Colors.white)
                                           },
                                       child: SubHeading(
                                           text: 'BUILDER',
@@ -162,7 +162,7 @@ class _NavBarState extends State<NavBar> {
                               InkWell(
                                   onTap: ()  {
                                     this.colorChange(
-                                                'marketplace', Colors.black);
+                                                'marketplace', Colors.white);
                                         this.setState(() {
                                           screen = 'marketplace';
                                           navbar = !navbar;
@@ -176,7 +176,7 @@ class _NavBarState extends State<NavBar> {
                                           },
                                       onExit: (PointerExitEvent evt) => {
                                             this.colorChange(
-                                                'marketplace', Colors.black)
+                                                'marketplace', Colors.white)
                                           },
                                       child: SubHeading(
                                           text: 'MARKETPLACE',
@@ -186,7 +186,7 @@ class _NavBarState extends State<NavBar> {
                                   onTap: ()  {
                                     this.setState(() {
                                                   btnColor =
-                                                      new Color(0xFFFCC016);
+                                                      new Color(0xFF394967);
                                                 });
                                         this.setState(() {
                                           screen = 'sign';
@@ -206,11 +206,11 @@ class _NavBarState extends State<NavBar> {
                                           onExit: (PointerExitEvent evt) => {
                                                 this.setState(() {
                                                   btnColor =
-                                                      new Color(0xFFFCC016);
+                                                      new Color(0xFF394967);
                                                 })
                                               },
                                           child: Container(
-                                              width: 100,
+                                              width: 150,
                                               decoration: BoxDecoration(
                                                 border:
                                                     Border.all(color: btnColor),
@@ -219,7 +219,7 @@ class _NavBarState extends State<NavBar> {
                                                 color: btnColor,
                                               ),
                                               child: Text(
-                                                'SIGN UP',
+                                                'SIGN UP NOW',
                                                 textAlign: TextAlign.center,
                                                 style: TextStyle(
                                                   color: Colors.white,
@@ -242,7 +242,7 @@ class _NavBarState extends State<NavBar> {
         return Container(
           width: screenSize.width,
             height: 60,
-            color: Colors.grey.withOpacity(0.9),
+            color: Colors.grey[300].withOpacity(0.7),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -271,7 +271,7 @@ class _NavBarState extends State<NavBar> {
     }
     return Container(
       width: screenSize.width,
-        color: Colors.grey.withOpacity(0.9),
+        color: Colors.grey[300].withOpacity(0.7),
         height: 60,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -294,7 +294,7 @@ class _NavBarState extends State<NavBar> {
                   onEnter: (PointerEnterEvent evt) =>
                       {this.colorChange('scan', Colors.red)},
                   onExit: (PointerExitEvent evt) =>
-                      {this.colorChange('scan', Colors.black)},
+                      {this.colorChange('scan', Colors.white)},
                   child: SubHeading(
                       text: 'SCAN TOOL',
                       bold: this.screen == 'scan',
@@ -311,7 +311,7 @@ class _NavBarState extends State<NavBar> {
                   if (hovered) {
                     this.colorChange('vault', Colors.blue);
                   } else {
-                    this.colorChange('vault', Colors.black);
+                    this.colorChange('vault', Colors.white);
                   }
                 },
                 child: SubHeading(
@@ -330,7 +330,7 @@ class _NavBarState extends State<NavBar> {
                     onEnter: (PointerEnterEvent evt) =>
                         {this.colorChange('builder', Colors.green)},
                     onExit: (PointerExitEvent evt) =>
-                        {this.colorChange('builder', Colors.black)},
+                        {this.colorChange('builder', Colors.white)},
                     child: SubHeading(
                         text: 'BUILDER',
                         bold: this.screen == 'builder',
@@ -348,7 +348,7 @@ class _NavBarState extends State<NavBar> {
                           this.colorChange('marketplace', new Color(0xFFFFAD33))
                         },
                     onExit: (PointerExitEvent evt) =>
-                        {this.colorChange('marketplace', Colors.black)},
+                        {this.colorChange('marketplace', Colors.white)},
                     child: SubHeading(
                         text: 'MARKETPLACE',
                         bold: this.screen == 'marketplace',
@@ -372,11 +372,11 @@ class _NavBarState extends State<NavBar> {
                             },
                         onExit: (PointerExitEvent evt) => {
                               this.setState(() {
-                                btnColor = new Color(0xFFFCC016);
+                                btnColor = new Color(0xFF394967);
                               })
                             },
                         child: Container(
-                            width: 100,
+                            width: 150,
                             decoration: BoxDecoration(
                               border: Border.all(color: btnColor),
                               borderRadius:
@@ -384,10 +384,10 @@ class _NavBarState extends State<NavBar> {
                               color: btnColor,
                             ),
                             child: Text(
-                              'SIGN UP',
+                              'SIGN UP NOW',
                               textAlign: TextAlign.center,
                               style: TextStyle(
-                                color: Colors.black,
+                                color: Colors.white,
                                 fontFamily: 'Muli',
                                 fontWeight: this.screen == 'sign'
                                     ? FontWeight.bold

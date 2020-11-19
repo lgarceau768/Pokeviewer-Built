@@ -4,6 +4,7 @@ import 'dart:html' as html;
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:website/components/AboutUs.dart';
 import 'package:website/components/BBottomBar.dart';
 import 'package:website/components/BCard.dart';
 import 'package:website/components/BCompoundCard.dart';
@@ -30,6 +31,7 @@ class _HomePageState extends State<HomePage> {
   var signUp = 'https://forms.gle/MbrFQyjzWYsjrRPB8';
   Color btnColor;
   bool modal = false;
+  bool about = false;
 
   void newUser() async {
       SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -95,187 +97,189 @@ class _HomePageState extends State<HomePage> {
             child: Stack(
               children: <Widget>[                
                 Center(
-                child: ListView(
-                  padding: EdgeInsets.only(left: 0, right: 0, top: 40, bottom: 0),
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.only(left: 80, right: 50),
-                      child: BCard(
-                        leftChild: RespContainer(
-                          decor: BoxDecoration(
-                            border: Border.all(color: new Color(0xFFFFAD33)),
-                            borderRadius: BorderRadius.all(Radius.circular(10)),
-                            color: Colors.grey,
-                            boxShadow: [
-                              BoxShadow(blurRadius: 20, color: Colors.grey)
-                            ]),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Padding(
-                                padding: EdgeInsets.only(bottom: 5),
-                                child: Heading(text: 'FINALLY IT\'S HERE')),
-                              Center(
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Padding(
-                                      padding: EdgeInsets.only(right: 5, bottom: 2),
-                                      child: CustomTxt(
-                                        color: Colors.black,
-                                        fontSize: screenSize.width > 1000 ? 40 : 35,
-                                        text: 'BANK',bold: false),
-                                    ),
-                                    Padding(
-                                      padding: EdgeInsets.only(right: 5, bottom: 2),
-                                      child: CustomTxt(
-                                          color: Colors.black,
-                                          fontSize: screenSize.width > 1000 ? 40 : 35,
-                                          text: 'SORT',bold: false),
-                                    ),
-                                    Padding(
-                                      padding: EdgeInsets.only(right: 5, bottom: 2),
-                                      child: CustomTxt(
-                                          color: Colors.black,
-                                          fontSize: screenSize.width > 1000 ? 40 : 35,
-                                          text: 'SHARE',bold: false),
-                                    )
-                                  ],
-                                )
-                              ),
-                              Padding(
-                                padding: EdgeInsets.only(top: 5, bottom: 10),
-                                child: Center(
-                                  child: Para(
-                                    text: 'Revolutionary way to maintain\nyour LEGO® collection',
-                                    bold: false
-                                  )
-                                )
-                              ),
-                              Center(
-                                child:Center(
+                  child: ListView(
+                    padding: EdgeInsets.only(left: 0, right: 0, top: 40, bottom: 0),
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.only(left: 80, right: 50),
+                        child: BCard(
+                          leftChild: RespContainer(
+                            decor: BoxDecoration(
+                              border: Border.all(color: new Color(0xFFFFAD33)),
+                              borderRadius: BorderRadius.all(Radius.circular(10)),
+                              color: Colors.grey,
+                              boxShadow: [
+                                BoxShadow(blurRadius: 20, color: Colors.grey)
+                              ]),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Padding(
+                                  padding: EdgeInsets.only(bottom: 5),
+                                  child: Heading(text: 'FINALLY IT\'S HERE')),
+                                Center(
                                   child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                    mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
-                                    Column(
+                                      Padding(
+                                        padding: EdgeInsets.only(right: 5, bottom: 2),
+                                        child: CustomTxt(
+                                          color: Colors.black,
+                                          fontSize: screenSize.width > 1000 ? 40 : 35,
+                                          text: 'BANK',bold: false),
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsets.only(right: 5, bottom: 2),
+                                        child: CustomTxt(
+                                            color: Colors.black,
+                                            fontSize: screenSize.width > 1000 ? 40 : 35,
+                                            text: 'SORT',bold: false),
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsets.only(right: 5, bottom: 2),
+                                        child: CustomTxt(
+                                            color: Colors.black,
+                                            fontSize: screenSize.width > 1000 ? 40 : 35,
+                                            text: 'SHARE',bold: false),
+                                      )
+                                    ],
+                                  )
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.only(top: 5, bottom: 10),
+                                  child: Center(
+                                    child: Para(
+                                      text: 'Revolutionary way to maintain\nyour LEGO® collection',
+                                      bold: false
+                                    )
+                                  )
+                                ),
+                                Center(
+                                  child:Center(
+                                    child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.spaceAround,
                                       children: [
-                                        InkWell(
-                                          onTap: () => {openLink(gplay)},
-                                          child: ResponsiveWidget(
-                                              largeScreen: Image.asset('G-Play.png'),
-                                              mediumScreen: Image.asset('G-Play.png', width: 156, height: 49),
-                                              smallScreen: Image.asset('G-Play.png', width: 156, height: 49),
+                                      Column(
+                                        children: [
+                                          InkWell(
+                                            onTap: () => {openLink(gplay)},
+                                            child: ResponsiveWidget(
+                                                largeScreen: Image.asset('G-Play.png'),
+                                                mediumScreen: Image.asset('G-Play.png', width: 156, height: 49),
+                                                smallScreen: Image.asset('G-Play.png', width: 156, height: 49),
+                                            ),
                                           ),
-                                        ),
-                                        Container(
-                                          decoration: BoxDecoration(
-                                            color: Colors.grey,
-                                            border: Border.all(color: new Color(0xFFFFAD33)),
-                                            borderRadius: BorderRadius.all(Radius.circular(5))
-                                          ),
-                                          width: 150,
-                                          height: 150,
-                                          child: Image.asset('G-Play-QR.png')
-                                        )
-                                      ],
-                                    ),
-                                    Column(
-                                      children: [
-                                        InkWell(
-                                          onTap: () => {openLink(astore)},
-                                          child: ResponsiveWidget(
-                                            largeScreen: Image.asset('App-Store.png'),
-                                            mediumScreen: Image.asset('App-Store.png', width: 156, height: 49),
-                                            smallScreen: Image.asset('App-Store.png', width: 156, height: 49))),
-                                        Container(
-                                          decoration: BoxDecoration(
+                                          Container(
+                                            decoration: BoxDecoration(
                                               color: Colors.grey,
                                               border: Border.all(color: new Color(0xFFFFAD33)),
-                                              borderRadius: BorderRadius.all(Radius.circular(5))),
-                                          width: 150,
-                                          height: 150,
-                                          child: Image.asset('App-Store-QR.png')
-                                        )
-                                      ],
+                                              borderRadius: BorderRadius.all(Radius.circular(5))
+                                            ),
+                                            width: 150,
+                                            height: 150,
+                                            child: Image.asset('G-Play-QR.png')
+                                          )
+                                        ],
+                                      ),
+                                      Column(
+                                        children: [
+                                          InkWell(
+                                            onTap: () => {openLink(astore)},
+                                            child: ResponsiveWidget(
+                                              largeScreen: Image.asset('App-Store.png'),
+                                              mediumScreen: Image.asset('App-Store.png', width: 156, height: 49),
+                                              smallScreen: Image.asset('App-Store.png', width: 156, height: 49))),
+                                          Container(
+                                            decoration: BoxDecoration(
+                                                color: Colors.grey,
+                                                border: Border.all(color: new Color(0xFFFFAD33)),
+                                                borderRadius: BorderRadius.all(Radius.circular(5))),
+                                            width: 150,
+                                            height: 150,
+                                            child: Image.asset('App-Store-QR.png')
+                                          )
+                                        ],
+                                      )
+                                    ],
                                     )
-                                  ],
                                   )
                                 )
-                              )
-                            ],
+                              ],
+                            ),
                           ),
+                          rightChild: RespImage(asset: screenSize.width > 1316 ? 'M-D-V-Screen@2x.png': 'M-D-V-Screen.png'), socialIcons: true,
                         ),
-                        rightChild: RespImage(asset: screenSize.width > 1316 ? 'M-D-V-Screen@2x.png': 'M-D-V-Screen.png'), socialIcons: true,
                       ),
-                    ),
-                    BCompoundCard(
-                      key: SCAN_KEY,
-                      color: Colors.grey[350].withOpacity(0.7),
-                      title: 'Bank Tool!',
-                      text: 'Bank the pieces of your LEGO® set\nwith the camera.\nOrganize them in the "Vault"\ncreate your own builds.',
-                      imageLeft: false,
-                      imagePath: screenSize.width > 1200 ? 'assets/Scan-Screen@2x.png' : 'assets/Scan-Screen.png'
-                    ),
-                    BCompoundCard(
-                      key: VAULT_KEY,
-                      color: Colors.grey[350].withOpacity(0.7),
-                      title: 'Build Your Vault',
-                      text: 'You can see all the pieces you scanned,\nhow yours sets are formed,\nsee detauls about each piece\nand organize them the way you want.',
-                      imageLeft: true,
-                      imagePath: screenSize.width > 1200 ? 'assets/Vault-Screen@2x.png':'assets/Vault-Screen.png'
-                    ),
-                    BCompoundCard(
-                      key: BUILDER_KEY,
-                      color: Colors.grey[350].withOpacity(0.7),
-                      title: 'Post Your Custom Designs',
-                      text: 'Use the pieces you already scanned\nto create your own unique constructions,\ntake a picture, name it and save it here.\nYou can also share your creations.',
-                      imageLeft: false,
-                      imagePath: screenSize.width > 1200 ? 'assets/Builder-Screen@2x.png':'assets/Builder-Screen.png'
-                    ),
-                    BCompoundCard(
-                      key: MARKETPLACE_KEY,
-                      color: Colors.grey[350].withOpacity(0.7),
-                      title: 'Discover New Sets',
-                      text: 'You are very close to completing this set,\nbuy the pieces to complete it.\nFind out which sets you might like.',
-                      imageLeft: true,
-                      imagePath: screenSize.width > 1200 ? 'assets/MarketPlace-Screen@2x.png':'assets/MarketPlace-Screen.png'
-                    ),
-                    BCompoundCard(
-                      color: Colors.grey[350].withOpacity(0.7),
-                      title: 'Create Your Own Tags',
-                      text: '1. Find a box or bin, mark it whith a color or wirte the name you like.\n2. Create a TAG with the same name or color in the app.\n3. Scan parts and the TAG to them.\n4. Store these pieces in the box or container, that you created.\n\nAmazing! You learned to use TAG, a new feature in BrickBanker.',
-                      imageLeft: false,
-                      imagePath: 'assets/Placeholder.png'
-                    ),
-                    BCompoundCard(
-                      color: Colors.grey[350].withOpacity(0.7),
-                      title: 'Stay Tunned!',
-                      text: 'New cool features are coming soon,\nstay tuned to see them before anyone else!',
-                      imageLeft: true,
-                      imagePath: screenSize.width > 1200 ? 'assets/CS-Screen@2x.png': 'assets/CS-Screen.png'
-                    ),
-                    BBottomBar()
-                  ],
-                )
-              ),
+                      BCompoundCard(
+                        key: SCAN_KEY,
+                        color: Colors.grey[350].withOpacity(0.7),
+                        title: 'Bank Tool!',
+                        text: 'Bank the pieces of your LEGO® set\nwith the camera.\nOrganize them in the "Vault"\ncreate your own builds.',
+                        imageLeft: false,
+                        imagePath: screenSize.width > 1200 ? 'assets/Scan-Screen@2x.png' : 'assets/Scan-Screen.png'
+                      ),
+                      BCompoundCard(
+                        key: VAULT_KEY,
+                        color: Colors.grey[350].withOpacity(0.7),
+                        title: 'Build Your Vault',
+                        text: 'You can see all the pieces you scanned,\nhow yours sets are formed,\nsee detauls about each piece\nand organize them the way you want.',
+                        imageLeft: true,
+                        imagePath: screenSize.width > 1200 ? 'assets/Vault-Screen@2x.png':'assets/Vault-Screen.png'
+                      ),
+                      BCompoundCard(
+                        key: BUILDER_KEY,
+                        color: Colors.grey[350].withOpacity(0.7),
+                        title: 'Post Your Custom Designs',
+                        text: 'Use the pieces you already scanned\nto create your own unique constructions,\ntake a picture, name it and save it here.\nYou can also share your creations.',
+                        imageLeft: false,
+                        imagePath: screenSize.width > 1200 ? 'assets/Builder-Screen@2x.png':'assets/Builder-Screen.png'
+                      ),
+                      BCompoundCard(
+                        key: MARKETPLACE_KEY,
+                        color: Colors.grey[350].withOpacity(0.7),
+                        title: 'Discover New Sets',
+                        text: 'You are very close to completing this set,\nbuy the pieces to complete it.\nFind out which sets you might like.',
+                        imageLeft: true,
+                        imagePath: screenSize.width > 1200 ? 'assets/MarketPlace-Screen@2x.png':'assets/MarketPlace-Screen.png'
+                      ),
+                      BCompoundCard(
+                        color: Colors.grey[350].withOpacity(0.7),
+                        title: 'Create Your Own Tags',
+                        text: '1. Find a box or bin, mark it whith a color or wirte the name you like.\n2. Create a TAG with the same name or color in the app.\n3. Scan parts and the TAG to them.\n4. Store these pieces in the box or container, that you created.\n\nAmazing! You learned to use TAG, a new feature in BrickBanker.',
+                        imageLeft: false,
+                        imagePath: 'assets/Placeholder.png'
+                      ),
+                      BCompoundCard(
+                        color: Colors.grey[350].withOpacity(0.7),
+                        title: 'Stay Tuned!',
+                        text: 'New cool features are coming soon,\nstay tuned to see them before anyone else!',
+                        imageLeft: true,
+                        imagePath: screenSize.width > 1200 ? 'assets/CS-Screen@2x.png': 'assets/CS-Screen.png'
+                      ),
+                      BBottomBar(onAbout: () => this.setState(() {
+                        about = true;
+                      })),
+                    ],
+                  )
+                ),
                 Positioned(
-                  top: 0,
-                  left: 0,
-                  child: NavBar(onTap: (path) {
-                    print('path: '+path.toString());
-                      if(path == 'vault'){
-                        Scrollable.ensureVisible(VAULT_KEY.currentContext);
-                      } else if(path == 'builder') {
-                        Scrollable.ensureVisible(BUILDER_KEY.currentContext);
-                      } else if(path == "marketplace") {
-                        Scrollable.ensureVisible(MARKETPLACE_KEY.currentContext);
-                      } else if(path == "scan") {
-                        Scrollable.ensureVisible(SCAN_KEY.currentContext);
-                      } else if(path == "sign") {
-                        openLink(signUp);
-                      }
-                    }),
+                top: 0,
+                left: 0,
+                child: NavBar(onTap: (path) {
+                  print('path: '+path.toString());
+                    if(path == 'vault'){
+                      Scrollable.ensureVisible(VAULT_KEY.currentContext);
+                    } else if(path == 'builder') {
+                      Scrollable.ensureVisible(BUILDER_KEY.currentContext);
+                    } else if(path == "marketplace") {
+                      Scrollable.ensureVisible(MARKETPLACE_KEY.currentContext);
+                    } else if(path == "scan") {
+                      Scrollable.ensureVisible(SCAN_KEY.currentContext);
+                    } else if(path == "sign") {
+                      openLink(signUp);
+                    }
+                  }),
                 ),
                 modal ? Positioned(
                   top: 0,
@@ -358,6 +362,9 @@ class _HomePageState extends State<HomePage> {
                     )
                   )
                 ) : Container(width: 0, height: 0),
+                about ? About(callBack: () => this.setState(() {
+                  about = false;
+                })): Container(width: 0, height: 0)
               ]
             ),
           ),
