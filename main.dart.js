@@ -52993,7 +52993,7 @@ aK:function(){return new Z.CC(C.l)}}
 Z.CC.prototype={
 aY:function(){this.bi()},
 n:function(a){this.b8(0)},
-L:function(a,b){var s,r,q,p,o,n,m,l=null,k=4282400832,j="assets/B-ICON.png",i="assets/Text.png",h=F.b_(b,!1).a.a,g=F.b_(b,!1).a.a
+L:function(a,b){var s,r,q,p,o,n,m,l=null,k=4282400832,j="assets/B-Icon.png",i="assets/Text.png",h=F.b_(b,!1).a.a,g=F.b_(b,!1).a.a
 if(h>1336){s=U.bI(j,l,l,l)
 r=h/4.2
 if(r<448)r=448
@@ -53081,7 +53081,7 @@ fQ:function(a){return this.c.$1(a)}}
 A.EH.prototype={
 aY:function(){this.bi()},
 cg:function(a,b){this.a1(new A.Ye(this,a,b))},
-L:function(a3,a4){var s,r,q,p,o,n,m,l,k,j,i,h,g=this,f=null,e="SCAN TOOL",d="MARKETPLACE",c="marketplace",b="SIGN UP NOW",a="assets/Text.png",a0="assets/B-ICON.png",a1=F.b_(a4,!1).a,a2=a1.a
+L:function(a3,a4){var s,r,q,p,o,n,m,l,k,j,i,h,g=this,f=null,e="SCAN TOOL",d="MARKETPLACE",c="marketplace",b="SIGN UP NOW",a="assets/Text.png",a0="assets/B-Icon.png",a1=F.b_(a4,!1).a,a2=a1.a
 if(a2<=1200){P.ed("smaller: "+String(g.r))
 if(g.r){s=C.r.h(0,300)
 s.toString
