@@ -4,11 +4,8 @@ import 'package:website/components/Responsive.dart';
 import 'package:website/components/SubHeading.dart';
 
 class NavBar extends StatefulWidget {
-  GlobalKey scan;
-  GlobalKey vault;
-  GlobalKey builder;
-  GlobalKey market;
-  NavBar({Key key, this.scan, this.vault, this.builder, this.market}) : super(key: key);
+  final onTap;
+  NavBar({Key key, this.onTap}) : super(key: key);
 
   @override
   _NavBarState createState() => _NavBarState();
@@ -40,201 +37,240 @@ class _NavBarState extends State<NavBar> {
   @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
-    if (screenSize.width < 1019) {
-      if(this.navbar){
-        return Stack(
-          fit: StackFit.expand,
-          children: [
-            Container(
-              height: 60,
-              color: Colors.grey.withOpacity(0.9),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Container(
-                    width: screenSize.width / 4.2 < 448 ? 448: screenSize.width / 4.2,
-                    height: screenSize.height / 10 < 108 ? 448: screenSize.height / 10,
-                    child: Image.asset('assets/Text.png')
-                  ),
-                  InkWell(
-                    onTap: () {
-                      this.setState(() {
-                        navbar = !navbar;
-                      });
-                    },
-                    child: Container(
-                      width: 120,
-                      child: Image.asset('assets/B-ICON.png')
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Positioned(
-              top: 0, 
-              right: 0,
-              child: Container(
-                width: 200,
-                height: 300,
-                child: Expanded(
-                  child: Container(
-                    color: Colors.transparent,
-                    height: screenSize.height / 3 < 360 ? 360: screenSize.height / 3,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        InkWell(
-                          onTap: () {
-                            this.setState(() {
-                              screen = 'scan';
-                            });
-                            print('scan');
-                            Scrollable.ensureVisible(widget.scan.currentContext);
-                            colorChange('scan', Colors.black);
-                          },
-                          child: MouseRegion(
-                              onEnter: (PointerEnterEvent evt) =>
-                                  {this.colorChange('scan', Colors.red)},
-                              onExit: (PointerExitEvent evt) =>
-                                  {this.colorChange('scan', Colors.black)},
-                              child: SubHeading(
-                                  text: 'SCAN TOOL',
-                                  bold: this.screen == 'scan',
-                                  color: colors['scan'])),
-                        ),
-                        InkWell(
-                            onTap: () {
-                                  this.setState(() {
-                                    screen = 'vault';
-                                  });
-                                  Scrollable.ensureVisible(widget.vault.currentContext);
-                                },
-                            onHover: (hovered) {
-                              if(hovered){
-                                this.colorChange('vault', Colors.blue);
-                              } else {
-                                this.colorChange('vault', Colors.black);
-                              }
-                            },
-                            child: SubHeading(
-                                    text: 'VAULT',
-                                    bold: this.screen == 'vault',
-                                    color: colors['vault'])),
-                        InkWell(
-                            onTap: () {
-                                  this.setState(() {
-                                    screen = 'builder';
-                                  });
-                                  Scrollable.ensureVisible(widget.builder.currentContext);
-                                },
-                            child: MouseRegion(
-                                onEnter: (PointerEnterEvent evt) =>
-                                    {this.colorChange('builder', Colors.green)},
-                                onExit: (PointerExitEvent evt) =>
-                                    {this.colorChange('builder', Colors.black)},
-                                child: SubHeading(
-                                    text: 'BUILDER',
-                                    bold: this.screen == 'builder',
-                                    color: colors['builder']))),
-                        InkWell(
-                            onTap: () {
-                                  this.setState(() {
-                                    screen = 'marketplace';
-                                  });
-                                  Scrollable.ensureVisible(widget.market.currentContext);
-                                },
-                            child: MouseRegion(
-                                onEnter: (PointerEnterEvent evt) => {
-                                      this.colorChange('marketplace', new Color(0xFFFFAD33))
-                                    },
-                                onExit: (PointerExitEvent evt) =>
-                                    {this.colorChange('marketplace', Colors.black)},
-                                child: SubHeading(
-                                    text: 'MARKETPLACE',
-                                    bold: this.screen == 'marketplace',
-                                    color: colors['marketplace']))),
-                        InkWell(
-                          onTap: () => {
-                                this.setState(() {
-                                  screen = 'sign';
-                                }),
-                              },
-                          child: Padding(
-                            padding: EdgeInsets.only(left: 30, right: 30, bottom: 5, top: 5),
-                            child: MouseRegion(
-                              onEnter: (PointerEnterEvent evt) => {
-                                this.setState(() {
-                                  btnColor = Colors.green;
-                                })
-                              },
-                              onExit: (PointerExitEvent evt) => {
-                                this.setState(() {
-                                  btnColor = new Color(0xFFFCC016);
-                                })
-                              },
-                              child: Container(
-                                width: 100,
-                                decoration: BoxDecoration(
-                                  border: Border.all(color: btnColor),
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(5)),
-                                  color: btnColor,
-                                ),
-                                child: Text(
-                                  'SIGN UP',
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                    fontFamily: 'Muli',
-                                    fontWeight: this.screen == 'sign'
-                                        ? FontWeight.bold
-                                        : FontWeight.normal,
-                                    fontSize: 20,
-                                  ),
-                                )
-                              )
-                            )
-                          )
-                        ),
-                      ],
-                    ),
-                  ),
-                )
-              )
-            )
-          ],
-        );
-      } else {
+    if (screenSize.width < 1200) {
+      if (this.navbar) {
         return Container(
-          height: 60,
-          color: Colors.grey.withOpacity(0.9),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          width: screenSize.width,
+          height: 480,
+          child: Stack(
+            fit: StackFit.passthrough,
             children: [
-              Container(
-                width: screenSize.width / 4.2 < 448 ? 448: screenSize.width / 4.2,
-                height: screenSize.height / 10 < 108 ? 448: screenSize.height / 10,
-                child: Image.asset('assets/Text.png')
-              ),
-              InkWell(
-                onTap: () {
-                  this.setState(() {
-                    navbar = !navbar;
-                  });
-                },
+              Positioned(
+                top: 0,
+                left: 0,
                 child: Container(
-                  width: 120,
-                  color: Colors.grey[300].withOpacity(0.5),
-                  child: Image.asset('assets/B-ICON.png')
+                  width: screenSize.width,
+                  height: 60,
+                  color: Colors.grey.withOpacity(0.9),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Container(
+                          width: screenSize.width / 4.2 < 448
+                              ? 448
+                              : screenSize.width / 4.2,
+                          height: screenSize.height / 10 < 108
+                              ? 448
+                              : screenSize.height / 10,
+                          child: Image.asset('assets/Text.png')),
+                      InkWell(
+                        onTap: () {
+                          this.setState(() {
+                            navbar = !navbar;
+                          });
+                        },
+                        child: Container(
+                            width: 120, child: Image.asset('assets/B-ICON.png')),
+                      ),
+                    ],
+                  ),
                 ),
               ),
+              Positioned(
+                  top: 60,
+                  right: 0,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.only(bottomRight: Radius.circular(5), bottomLeft: Radius.circular(5)),
+                      color: Colors.grey.withOpacity(0.9),
+                    ),
+                      width: 200,
+                      height: 300,
+                      child: Expanded(
+                        child: Container(
+                          color: Colors.transparent,
+                          height: screenSize.height / 3 < 360
+                              ? 360
+                              : screenSize.height / 3,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            children: [
+                              InkWell(
+                                onTap: ()  {
+                                  this.colorChange('scan', Colors.black);
+                                  this.setState(() {
+                                    screen = 'scan';
+                                          navbar = !navbar;
+                                  });
+                                          widget.onTap('scan');
+                                },
+                                child: MouseRegion(
+                                    onEnter: (PointerEnterEvent evt) =>
+                                        {this.colorChange('scan', Colors.red)},
+                                    onExit: (PointerExitEvent evt) =>
+                                        {this.colorChange('scan', Colors.black)},
+                                    child: SubHeading(
+                                        text: 'SCAN TOOL',
+                                        bold: this.screen == 'scan',
+                                        color: colors['scan'])),
+                              ),
+                              InkWell(
+                                  onTap: ()  {
+                                    this.colorChange('vault', Colors.black);
+                                        this.setState(() {
+                                          screen = 'vault';
+                                          navbar = !navbar;
+                                        });
+                                          widget.onTap('vault');
+                                      },
+                                  child: MouseRegion(
+                                      onEnter: (PointerEnterEvent evt) => {
+                                            this.colorChange('vault', Colors.blue)
+                                          },
+                                      onExit: (PointerExitEvent evt) => {
+                                            this.colorChange(
+                                                'vault', Colors.black)
+                                          },
+                                      child: SubHeading(
+                                          text: 'VAULT',
+                                          bold: this.screen == 'vault',
+                                          color: colors['vault']))),
+                              InkWell(
+                                  onTap: ()  {
+                                    this.colorChange(
+                                                'builder', Colors.green);
+                                        this.setState(() {
+                                          screen = 'builder';
+                                          navbar = !navbar;
+                                        });
+                                          widget.onTap('builder');
+                                      },
+                                  child: MouseRegion(
+                                      onEnter: (PointerEnterEvent evt) => {
+                                            this.colorChange(
+                                                'builder', Colors.green)
+                                          },
+                                      onExit: (PointerExitEvent evt) => {
+                                            this.colorChange(
+                                                'builder', Colors.black)
+                                          },
+                                      child: SubHeading(
+                                          text: 'BUILDER',
+                                          bold: this.screen == 'builder',
+                                          color: colors['builder']))),
+                              InkWell(
+                                  onTap: ()  {
+                                    this.colorChange(
+                                                'marketplace', Colors.black);
+                                        this.setState(() {
+                                          screen = 'marketplace';
+                                          navbar = !navbar;
+                                        });
+                                          widget.onTap('marketplace');
+                                      },
+                                  child: MouseRegion(
+                                      onEnter: (PointerEnterEvent evt) => {
+                                            this.colorChange('marketplace',
+                                                new Color(0xFFFFAD33))
+                                          },
+                                      onExit: (PointerExitEvent evt) => {
+                                            this.colorChange(
+                                                'marketplace', Colors.black)
+                                          },
+                                      child: SubHeading(
+                                          text: 'MARKETPLACE',
+                                          bold: this.screen == 'marketplace',
+                                          color: colors['marketplace']))),
+                              InkWell(
+                                  onTap: ()  {
+                                    this.setState(() {
+                                                  btnColor =
+                                                      new Color(0xFFFCC016);
+                                                });
+                                        this.setState(() {
+                                          screen = 'sign';
+                                          navbar = !navbar;
+                                        });
+                                          widget.onTap('sign');
+                                      },
+                                  child: Padding(
+                                      padding: EdgeInsets.only(
+                                          left: 15, right: 15, bottom: 5, top: 5),
+                                      child: MouseRegion(
+                                          onEnter: (PointerEnterEvent evt) => {
+                                                this.setState(() {
+                                                  btnColor = Colors.green;
+                                                })
+                                              },
+                                          onExit: (PointerExitEvent evt) => {
+                                                this.setState(() {
+                                                  btnColor =
+                                                      new Color(0xFFFCC016);
+                                                })
+                                              },
+                                          child: Container(
+                                              width: 100,
+                                              decoration: BoxDecoration(
+                                                border:
+                                                    Border.all(color: btnColor),
+                                                borderRadius: BorderRadius.all(
+                                                    Radius.circular(5)),
+                                                color: btnColor,
+                                              ),
+                                              child: Text(
+                                                'SIGN UP',
+                                                textAlign: TextAlign.center,
+                                                style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontFamily: 'Muli',
+                                                  fontWeight:
+                                                      this.screen == 'sign'
+                                                          ? FontWeight.bold
+                                                          : FontWeight.normal,
+                                                  fontSize: 20,
+                                                ),
+                                              ))))),
+                            ],
+                          ),
+                        ),
+                      )))
             ],
           )
         );
+      } else {
+        return Container(
+          width: screenSize.width,
+            height: 60,
+            color: Colors.grey.withOpacity(0.9),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Container(
+                    width: screenSize.width / 4.2 < 448
+                        ? 448
+                        : screenSize.width / 4.2,
+                    height: screenSize.height / 10 < 108
+                        ? 448
+                        : screenSize.height / 10,
+                    child: Image.asset('assets/Text.png')),
+                InkWell(
+                  onTap: () {
+                    this.setState(() {
+                      navbar = !navbar;
+                    });
+                  },
+                  child: Container(
+                      width: 120,
+                      color: Colors.grey[300].withOpacity(0.5),
+                      child: Image.asset('assets/B-ICON.png')),
+                ),
+              ],
+            ));
       }
     }
     return Container(
+      width: screenSize.width,
         color: Colors.grey.withOpacity(0.9),
         height: 60,
         child: Row(
@@ -242,15 +278,17 @@ class _NavBarState extends State<NavBar> {
           children: [
             Image.asset('assets/B-ICON.png'),
             Container(
-                width: screenSize.width / 4.2 < 448 ? 448: screenSize.width / 4.2,
-                height: screenSize.height / 10 < 108 ? 448: screenSize.height / 10,
-                child: Image.asset('assets/Text.png')
-            ),
+                width:
+                    screenSize.width / 4.2 < 448 ? 448 : screenSize.width / 4.2,
+                height:
+                    screenSize.height / 10 < 108 ? 448 : screenSize.height / 10,
+                child: Image.asset('assets/Text.png')),
             InkWell(
-              onTap: () => {
+              onTap: () {
                 this.setState(() {
                   screen = 'scan';
-                }),
+                });
+                widget.onTap('scan');
               },
               child: MouseRegion(
                   onEnter: (PointerEnterEvent evt) =>
@@ -263,26 +301,31 @@ class _NavBarState extends State<NavBar> {
                       color: colors['scan'])),
             ),
             InkWell(
-                onTap: () => {
-                      this.setState(() {
-                        screen = 'vault';
-                      }),
-                    },
-                child: MouseRegion(
-                    onEnter: (PointerEnterEvent evt) =>
-                        {this.colorChange('vault', Colors.blue)},
-                    onExit: (PointerExitEvent evt) =>
-                        {this.colorChange('vault', Colors.black)},
-                    child: SubHeading(
-                        text: 'VAULT',
-                        bold: this.screen == 'vault',
-                        color: colors['vault']))),
+                onTap: () {
+                  this.setState(() {
+                    screen = 'vault';
+                  });
+                  widget.onTap('vault');
+                },
+                onHover: (hovered) {
+                  if (hovered) {
+                    this.colorChange('vault', Colors.blue);
+                  } else {
+                    this.colorChange('vault', Colors.black);
+                  }
+                },
+                child: SubHeading(
+                    text: 'VAULT',
+                    bold: this.screen == 'vault',
+                    color: colors['vault'])),
             InkWell(
-                onTap: () => {
-                      this.setState(() {
-                        screen = 'builder';
-                      }),
-                    },
+                onTap: () {
+                  this.setState(() {
+                    screen = 'builder';
+                  });
+
+                  widget.onTap('builder');
+                },
                 child: MouseRegion(
                     onEnter: (PointerEnterEvent evt) =>
                         {this.colorChange('builder', Colors.green)},
@@ -293,11 +336,13 @@ class _NavBarState extends State<NavBar> {
                         bold: this.screen == 'builder',
                         color: colors['builder']))),
             InkWell(
-                onTap: () => {
-                      this.setState(() {
-                        screen = 'marketplace';
-                      }),
-                    },
+                onTap: () {
+                  this.setState(() {
+                    screen = 'marketplace';
+                  });
+
+                  widget.onTap('marketplace');
+                },
                 child: MouseRegion(
                     onEnter: (PointerEnterEvent evt) => {
                           this.colorChange('marketplace', new Color(0xFFFFAD33))
@@ -309,50 +354,52 @@ class _NavBarState extends State<NavBar> {
                         bold: this.screen == 'marketplace',
                         color: colors['marketplace']))),
             InkWell(
-              onTap: () => {
-                    this.setState(() {
-                      screen = 'sign';
-                    }),
-                  },
-              child: Padding(
-                padding: EdgeInsets.only(left: 15, right: 15, bottom: 5, top: 5),
-                child: MouseRegion(
-                  onEnter: (PointerEnterEvent evt) => {
-                    this.setState(() {
-                      btnColor = Colors.green;
-                    })
-                  },
-                  onExit: (PointerExitEvent evt) => {
-                    this.setState(() {
-                      btnColor = new Color(0xFFFCC016);
-                    })
-                  },
-                  child: Container(
-                    width: 100,
-                    decoration: BoxDecoration(
-                      border: Border.all(color: btnColor),
-                      borderRadius:
-                          BorderRadius.all(Radius.circular(5)),
-                      color: btnColor,
-                    ),
-                    child: Text(
-                      'SIGN UP',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontFamily: 'Muli',
-                        fontWeight: this.screen == 'sign'
-                            ? FontWeight.bold
-                            : FontWeight.normal,
-                        fontSize: 20,
-                      ),
+                onTap: () {
+                  this.setState(() {
+                    screen = 'sign';
+                  });
+
+                  widget.onTap('sign');
+                },
+                child: Padding(
+                    padding:
+                        EdgeInsets.only(left: 30, right: 30, bottom: 5, top: 5),
+                    child: MouseRegion(
+                        onEnter: (PointerEnterEvent evt) => {
+                              this.setState(() {
+                                btnColor = Colors.green;
+                              })
+                            },
+                        onExit: (PointerExitEvent evt) => {
+                              this.setState(() {
+                                btnColor = new Color(0xFFFCC016);
+                              })
+                            },
+                        child: Container(
+                            width: 100,
+                            decoration: BoxDecoration(
+                              border: Border.all(color: btnColor),
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(5)),
+                              color: btnColor,
+                            ),
+                            child: Text(
+                              'SIGN UP',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontFamily: 'Muli',
+                                fontWeight: this.screen == 'sign'
+                                    ? FontWeight.bold
+                                    : FontWeight.normal,
+                                fontSize: 20,
+                              ),
+                            )
+                        )
                     )
-                  )
                 )
-              )
             ),
           ],
-        )
-    );
+        ));
   }
 }

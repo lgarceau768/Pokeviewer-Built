@@ -32,7 +32,7 @@ class _BBottomBarState extends State<BBottomBar> {
     double w = MediaQuery.of(context).size.width;
     double h = MediaQuery.of(context).size.width;
 
-    if(w > 1019) {
+    if(w > 1336) {
       return Padding(
         padding: EdgeInsets.only(top: 100),
         child: Container(
@@ -110,13 +110,57 @@ class _BBottomBarState extends State<BBottomBar> {
                     )
                   ],
                 ),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    CustomTxt(bold: false, color: Colors.grey[350], text: 'Home', fontSize: 14),
+                    CustomTxt(bold: false, color: Colors.grey[350], text: 'Contact', fontSize: 14)
+                  ],
+                ),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    CustomTxt(bold: false, color: Colors.grey[350], text: 'Guidlines', fontSize: 14),
+                    CustomTxt(bold: false, color: Colors.grey[350], text: 'Terms', fontSize: 14),
+                  ],
+                ),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    CustomTxt(bold: false, color: Colors.grey[350], text: 'About', fontSize: 14),
+                    CustomTxt(bold: false, color: Colors.grey[350], text: 'Help', fontSize: 14)
+                  ],
+                ),
                 SocialIconsColored()
               ],
             ) 
           )
       );
     } else {
-
+      return Padding(
+        padding: EdgeInsets.only(top: 100),
+        child: Container(
+            color: new Color(0xFF404040),
+            width: w,
+            height: 135,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Image.asset('assets/B-ICON.png'),
+                Container(
+                    width: w / 4.2 < 448 ? 448: w / 4.2,
+                    height: h / 10 < 108 ? 448: h / 10,
+                    child: Image.asset('assets/Text.png')
+                ),                
+                Padding(
+                  padding: EdgeInsets.only(right: 15),
+                  child: SocialIconsColored()
+                )
+              ],
+            ) 
+          )
+      );
     }
   }
 }

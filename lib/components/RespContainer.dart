@@ -14,7 +14,7 @@ class RespContainer extends StatelessWidget {
       return Container(
         decoration: decor,
         width: w / 3,
-        height: h / 2.1,
+        height: h / 1.9,
         child: child
       );
     } else if (w <= 1200 && w > 822) {

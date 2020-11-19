@@ -14,9 +14,11 @@ class BCompoundCard extends StatelessWidget {
   Widget build(BuildContext context) {
     double w = MediaQuery.of(context).size.width;
     double h = MediaQuery.of(context).size.height;
-
-    if(w > 1020){
+    //print(w);
+    if(w >= 1336){
+      //print('big');
       if(!imageLeft){
+        //print('right');
         return Padding(
           padding: EdgeInsets.all(100),
           child: Center(
@@ -49,8 +51,7 @@ class BCompoundCard extends StatelessWidget {
                     child: OverflowBox(
                       maxHeight: 508,
                       child: SizedBox(
-                        width: 508,
-                        height: 570,
+                        height: 480,
                         child: Image.asset(imagePath)
                       )
                     )
@@ -61,6 +62,7 @@ class BCompoundCard extends StatelessWidget {
           )
         );
       } else {
+        //print('left');
         return Padding(
           padding: EdgeInsets.all(100),
           child: Center(
@@ -82,9 +84,8 @@ class BCompoundCard extends StatelessWidget {
                     child: OverflowBox(
                       maxHeight: 508,
                       child: SizedBox(
-                        width: 508,
-                        height: 570,
-                        child: Image.asset(imagePath)
+                        height: 480,
+                        child: Image.asset(imagePath, scale: 0.25)
                       )
                     )
                   ),
@@ -106,6 +107,7 @@ class BCompoundCard extends StatelessWidget {
         );
       }
     } else {
+      //print('small');
         return Padding(
           padding: EdgeInsets.all(120),
           child: Center(
@@ -114,9 +116,6 @@ class BCompoundCard extends StatelessWidget {
                 border: Border.all(color: color, width: 2),
                 color: Colors.grey.withOpacity(0.8),
                 borderRadius: BorderRadius.all(Radius.circular(50)),
-                boxShadow: [
-                  BoxShadow(color: Colors.grey[50], blurRadius: 5)
-                ]
               ),
               width: w * 0.75,
               height: h * 0.6,
@@ -129,7 +128,7 @@ class BCompoundCard extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Padding(
-                        padding: EdgeInsets.only(bottom: 15),
+                        padding: EdgeInsets.only(bottom: 15, top: 15),
                         child: Center(child: CustomTxt(bold: true, color: color, text: title, fontSize: 35, customAlign: TextAlign.left))
                       ),
                       Center(child: Para(bold: false, text: text, customAlign: TextAlign.left))
@@ -145,7 +144,7 @@ class BCompoundCard extends StatelessWidget {
                         child: SizedBox(
                           width: 508,
                           height: 570,
-                          child: Image.asset(imagePath)
+                          child: Image.asset(imagePath, scale: 0.25)
                         )
                       )
                     )

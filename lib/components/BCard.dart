@@ -17,7 +17,7 @@ class BCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
-    print(size.width);
+    //print(size.width);
     if (size.width < 822) {
       if (this.leftChild != null && this.rightChild != null) {
         if (this.socialIcons == true) {
@@ -69,10 +69,14 @@ class BCard extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      Padding(
-                          padding: EdgeInsets.all(10), child: this.leftChild),
-                      Padding(
-                          padding: EdgeInsets.all(10), child: this.rightChild),
+                      Flexible(
+                        child: Padding(
+                            padding: EdgeInsets.all(10), child: this.leftChild)
+                      ),
+                      Flexible(
+                        child: Padding(
+                            padding: EdgeInsets.all(10), child: this.rightChild)
+                      ),
                     ],
                   )),
               Padding(
