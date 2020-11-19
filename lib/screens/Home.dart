@@ -34,8 +34,9 @@ class _HomePageState extends State<HomePage> {
   bool about = false;
 
   void newUser() async {
+    try {
       SharedPreferences prefs = await SharedPreferences.getInstance();
-      bool new_user = prefs.getBool('new_user');
+      bool new_user = prefs.getBool('new_user') ?? true;
       print('new user status: '+new_user.toString());
       if(new_user == true){
         this.setState(() {
@@ -47,6 +48,12 @@ class _HomePageState extends State<HomePage> {
           modal = false;
         });
       }
+    } catch (e) {
+      print('Error with sharedprefs');
+      this.setState(() {
+        modal = true;
+      });
+    }
   }
 
   @override
@@ -165,9 +172,9 @@ class _HomePageState extends State<HomePage> {
                                           InkWell(
                                             onTap: () => {openLink(gplay)},
                                             child: ResponsiveWidget(
-                                                largeScreen: Image.asset('G-Play.png'),
-                                                mediumScreen: Image.asset('G-Play.png', width: 156, height: 49),
-                                                smallScreen: Image.asset('G-Play.png', width: 156, height: 49),
+                                                largeScreen: Image.asset('assets/G-Play.png'),
+                                                mediumScreen: Image.asset('assets/G-Play.png', width: 156, height: 49),
+                                                smallScreen: Image.asset('assets/G-Play.png', width: 156, height: 49),
                                             ),
                                           ),
                                           Container(
@@ -178,7 +185,7 @@ class _HomePageState extends State<HomePage> {
                                             ),
                                             width: 150,
                                             height: 150,
-                                            child: Image.asset('G-Play-QR.png')
+                                            child: Image.asset('assets/G-Play-QR.png')
                                           )
                                         ],
                                       ),
@@ -187,9 +194,9 @@ class _HomePageState extends State<HomePage> {
                                           InkWell(
                                             onTap: () => {openLink(astore)},
                                             child: ResponsiveWidget(
-                                              largeScreen: Image.asset('App-Store.png'),
-                                              mediumScreen: Image.asset('App-Store.png', width: 156, height: 49),
-                                              smallScreen: Image.asset('App-Store.png', width: 156, height: 49))),
+                                              largeScreen: Image.asset('assets/App-Store.png'),
+                                              mediumScreen: Image.asset('assets/App-Store.png', width: 156, height: 49),
+                                              smallScreen: Image.asset('assets/App-Store.png', width: 156, height: 49))),
                                           Container(
                                             decoration: BoxDecoration(
                                                 color: Colors.grey,
@@ -197,7 +204,7 @@ class _HomePageState extends State<HomePage> {
                                                 borderRadius: BorderRadius.all(Radius.circular(5))),
                                             width: 150,
                                             height: 150,
-                                            child: Image.asset('App-Store-QR.png')
+                                            child: Image.asset('assets/App-Store-QR.png')
                                           )
                                         ],
                                       )
@@ -208,7 +215,7 @@ class _HomePageState extends State<HomePage> {
                               ],
                             ),
                           ),
-                          rightChild: RespImage(asset: screenSize.width > 1316 ? 'M-D-V-Screen@2x.png': 'M-D-V-Screen.png'), socialIcons: true,
+                          rightChild: RespImage(asset: screenSize.width > 1316 ? 'assets/M-D-V-Screen@2x.png': 'assets/M-D-V-Screen.png'), socialIcons: true,
                         ),
                       ),
                       BCompoundCard(
