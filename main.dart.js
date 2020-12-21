@@ -60388,7 +60388,7 @@ $0:function(){var s=t._
 K.VR(this.b,"/search",this.a.c,s,s)},
 $S:2}
 F.Dy.prototype={
-S:function(a,b){return new S.tI(P.aU(["/",new F.WP(),"/tutorial",new F.WQ(),"/search",new F.WR(),"/details",new F.WS()],t.X,t.sy),"/tutorial",null)}}
+S:function(a,b){return new S.tI(P.aU(["/home",new F.WP(),"/",new F.WQ(),"/search",new F.WR(),"/details",new F.WS()],t.X,t.sy),"/",null)}}
 F.WP.prototype={
 $1:function(a){return new D.lF(null)},
 $S:407}
@@ -60675,7 +60675,7 @@ S:function(a,b){var s=null
 return M.Z_(s,new F.l3(T.hw(H.b([new K.t0("Welcome to PokeViewer!",s),U.aau("assets/ball.png",200,200),new M.kh("Our group designed and developed an application called Pokeviewer. Players and speed runners are often looking for the best strategies to get past challenges in Pokemon games. To do this they might want to see the stats of various Pokemon to fight more effectively. Our application gives these users an easy way to find the stats of these Pokemon as well as well as giving their strengths and weaknesses",s),R.k0(!1,!0,M.dK(s,new T.bW(new V.aq(20,20,20,20),new L.pt("Start Searching!",s),s),s,s,new S.cU(C.Am.h(0,100),s,s,K.nm(new P.bp(25,25)),H.b([new O.ek(0,C.af.h(0,300),C.h,3)],t.Sx),s,C.W),s,s,s,s),s,!0,s,s,s,s,s,s,s,s,s,new R.a7O(b),s,s,s),new M.kh("This is a school project, this is no way affiliated with the Pokemon Corporation, and is not for commercial use",s)],t.Ma),C.aN,C.ds,C.aK),s))}}
 R.a7O.prototype={
 $0:function(){var s=t._
-return K.VR(this.a,"/search",null,s,s)},
+return K.VR(this.a,"/",null,s,s)},
 $S:82}
 Y.vo.prototype={
 aL:function(){return new Y.Ka(null,C.n)}}
