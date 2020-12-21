@@ -60537,7 +60537,7 @@ case 1:return P.ai(q,r)}})
 return P.aj($async$ur,r)},
 uh:function(){var s,r=this
 r.av(new R.a6V(r))
-s=C.c.N(C.c.N("http://full5end.pythonanywhere.com/search_filter?type=",r.r)+"&query=",r.d)
+s=C.c.N(C.c.N("https://full5end.pythonanywhere.com/search_filter?type=",r.r)+"&query=",r.d)
 P.n1(s)
 G.ahM(s,null).bN(0,new R.a6W(r),t.P)},
 b5:function(){var s=this
@@ -60547,7 +60547,7 @@ s.d=""
 s.r="Name"},
 As:function(a){var s,r,q=this
 q.av(new R.a6Y(q))
-s=C.c.N(C.c.N("http://full5end.pythonanywhere.com/search?column=",q.r)+"&query=",q.d)
+s=C.c.N(C.c.N("https://full5end.pythonanywhere.com/search?column=",q.r)+"&query=",q.d)
 P.n1(s)
 r=t.X
 G.ahM(s,P.x(r,r)).bN(0,new R.a6Z(q),t.P)},
