@@ -1,11 +1,11 @@
 {
-    "name": "pokeviewer",
-    "short_name": "pokeviewer",
+    "name": "BrickBanker",
+    "short_name": "BB",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "description": "Website for the BrickBanker Mobile Application",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
